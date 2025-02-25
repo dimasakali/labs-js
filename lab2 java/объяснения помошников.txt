@@ -1,0 +1,28 @@
+Разбор основных помощников:
+getUniqueTransactionTypes(transactions)
+
+Использует Set(), чтобы оставить только уникальные типы транзакций (например, "приход" и "расход").
+transactions.map(t => t.transaction_type) — создаёт массив всех типов транзакций.
+[...new Set(...)] — превращает его в массив без дубликатов.
+calculateTotalAmount(transactions)
+
+Считает сумму всех транзакций.
+reduce() проходит по массиву и суммирует transaction_amount.
+calculateTotalAmountByDate(transactions, year, month, day)
+
+Фильтрует транзакции по заданной дате и суммирует их.
+Если год, месяц или день не указаны, фильтрует только по доступным параметрам.
+getTransactionByType(transactions, type)
+
+Возвращает все транзакции с указанным типом (например, "приход" или "расход").
+filter() оставляет только те объекты, где transaction_type === type.
+findMostTransactionsMonth(transactions)
+
+Подсчитывает, в каком месяце было больше всего транзакций.
+reduce() создаёт объект, где ключ — номер месяца, а значение — количество транзакций.
+Math.max(...Object.values(counts)) ищет самый загруженный месяц.
+mostTransactionTypes(transactions)
+
+Считает, каких транзакций (дебетовых или кредитных) больше.
+filter().length вычисляет количество транзакций каждого типа.
+Сравнивает и возвращает debit, credit или equal, если их поровну.
